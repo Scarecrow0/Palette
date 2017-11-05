@@ -6,6 +6,8 @@ import com.scarecrow.root.palette.utilty.CoordiPoint;
 import com.scarecrow.root.palette.utilty.CoordinateData;
 import com.scarecrow.root.palette.utilty.LinearVector;
 
+import java.io.Serializable;
+
 import static android.content.ContentValues.TAG;
 
 /**
@@ -13,7 +15,7 @@ import static android.content.ContentValues.TAG;
  * basic shape class for describe
  */
 
-public abstract class Shape implements Cloneable{
+public abstract class Shape implements Cloneable, Serializable {
     final public static int RECT = 0,
                             LINE = 1,
                             CRICLE = 2,

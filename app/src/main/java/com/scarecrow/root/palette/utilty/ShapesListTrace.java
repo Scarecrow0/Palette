@@ -11,7 +11,8 @@ import java.util.List;
  * 记录撤销 重做操作时的图形队列
  */
 
-public class ShapesListTrace { private List<Integer> traceIndexStore;
+public class ShapesListTrace {
+    private List<Integer> traceIndexStore;
     private int currStatePointer ;
     private TraceStore traceStore;
 

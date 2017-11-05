@@ -1,5 +1,7 @@
 package com.scarecrow.root.palette.utilty;
 
+import java.io.Serializable;
+
 /**
  * Created by root on 17-10-13.
  * every object can be assume as a rectangle box
@@ -8,7 +10,7 @@ package com.scarecrow.root.palette.utilty;
  * But we also need more points info to maintain this obj.
  */
 
-public class CoordinateData{
+public class CoordinateData implements Serializable {
     private CoordiPoint left_up,right_down,center;
 
     /**

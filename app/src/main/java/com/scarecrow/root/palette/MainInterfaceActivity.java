@@ -25,6 +25,8 @@ public class MainInterfaceActivity extends AppCompatActivity {
         final NumberPicker spinner = (NumberPicker) findViewById(R.id.color_picker);
         spinner.setMinValue(0);
         spinner.setMaxValue(5);
+        spinner.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
+
         Button button = (Button) findViewById(R.id.button_add_shape);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +58,22 @@ public class MainInterfaceActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 canvasPainter.onUndo();
+            }
+        });
+
+        button = (Button) findViewById(R.id.button_save);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                canvasPainter.save();
+            }
+        });
+
+        button = (Button) findViewById(R.id.button_load);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                canvasPainter.load();
             }
         });
     }

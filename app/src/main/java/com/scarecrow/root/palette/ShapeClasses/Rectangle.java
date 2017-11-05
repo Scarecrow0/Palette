@@ -4,11 +4,13 @@ import com.scarecrow.root.palette.utilty.CoordiPoint;
 import com.scarecrow.root.palette.utilty.CoordinateData;
 import com.scarecrow.root.palette.utilty.LinearVector;
 
+import java.io.Serializable;
+
 /**
  * Created by root on 17-10-26.
  */
 
-public class Rectangle extends Shape implements Cloneable{
+public class Rectangle extends Shape implements Cloneable, Serializable {
 
     public Rectangle(CoordiPoint leftup){
         super();

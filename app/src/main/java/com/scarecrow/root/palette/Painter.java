@@ -53,6 +53,8 @@ public class Painter {
 
     private ShapesListTrace shapeListTrace;
 
+    private ShapesFileManager shapesFileManager;
+
     public Painter(RedrawCallback redraw) {
         super();
         currState = 0;
@@ -60,6 +62,7 @@ public class Painter {
         addShapeType = 0;
         shapeListTrace = new ShapesListTrace();
         shapes = new LinkedList<>();
+        shapesFileManager = new ShapesFileManager();
     }
 
     public void setaddShapeInfo(int type, int color) {
@@ -240,6 +243,22 @@ public class Painter {
     public void onRedo(){
         exitSelectState();
         shapes = shapeListTrace.redo();
+        mredraw.onRedraw(shapes);
+    }
+
+
+    public void save() {
+        List<Shape> tmp = new LinkedList<>(shapes);
+        dativeSelectedShape();
+        shapesFileManager.saveToFile(shapes);
+        shapes = tmp;
+
+    }
+
+    public void load() {
+        dativeSelectedShape();
+        goToWaitSelected();
+        shapes = shapesFileManager.loadFromFile();
         mredraw.onRedraw(shapes);
     }
 
